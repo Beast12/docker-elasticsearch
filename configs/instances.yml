@@ -1,0 +1,31 @@
+instances:
+  - name: "elasticsearch-docker"
+    ip:
+      - 127.0.0.1
+    dns:
+      - esmaster01docker
+      - esmaster02docker
+      - esmaster03docker
+      - esmaster01docker.tuxito.be
+      - esmaster02docker.tuxito.be
+      - esmaster03docker.tuxito.be
+      - escoordination
+      - escoordination.tuxito.be
+      - esclient
+      - esclient.tuxito.be
+      - kibana
+      - kibana.tuxito.be
+      - logstash-docker
+      - logstash-docker.tuxito.be
+      - portainer01prod
+      - portainer02prod
+      - portainer03prod
+      - portainer01prod.tuxito.be
+      - portainer02prod.tuxito.be
+      - portainer03prod.tuxito.be
+      - elasticsearch-docker
+      - elasticsearch-docker.tuxito.be
+      - elasticsearch-docker.tuxito.be
+      - kibana-docker
+      - kibana-docker.tuxito.be
+      - kibana-docker.tuxito.be

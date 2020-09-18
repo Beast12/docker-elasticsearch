@@ -1,0 +1,68 @@
+# General config
+cluster.max_shards_per_node: 5100
+discovery.zen.minimum_master_nodes: 2
+bootstrap.memory_lock: false
+network.host: _eth0_
+http.port: 9200
+transport.host: _eth0_
+transport.port: 9300
+path.logs: /var/log
+cluster.initial_master_nodes:
+  - esmaster01docker
+  - esmaster02docker
+  - esmaster03docker
+discovery.seed_hosts:
+  - esmaster01docker
+discovery.zen.ping_timeout: 60s
+discovery.zen.commit_timeout: 60s
+node.master: false
+node.data: false
+node.ingest: false
+cluster.name: "elasticsearch-docker"
+xpack.monitoring.enabled: true
+xpack.monitoring.collection.enabled: true
+# Xpack Config
+# Xpack Config
+xpack.notification.slack:
+  monitoring.secure_url:
+  account:
+    secure_url:
+    monitoring:
+      message_defaults:
+        from: x-pack
+        to: notifications
+        icon: https://www.seacom.it/wp-content/uploads/2017/07/icon-alerting-bb.png
+        attachment:
+          fallback: "X-Pack Notification"
+          color: "#36a64f"
+          title: "X-Pack Notification elasticsearch"
+          title_link: "Elasticsearch Watcher"
+          text: "One of your watches generated this notification."
+          mrkdwn_in: "pretext, text"
+xpack.security.enabled: true
+xpack.license.self_generated.type: trial
+xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.verification_mode: certificate
+xpack.security.transport.ssl.certificate: "elasticsearch-docker.crt"
+xpack.security.transport.ssl.certificate_authorities: "ca.crt"
+xpack.security.transport.ssl.key: "elasticsearch-docker.key"
+xpack.notification.email:
+  default_account: digital
+  account:
+    ses_account:
+      smtp:
+          auth: true
+          starttls.enable: true
+          starttls.required: true
+          host: email-smtp.us-east-1.amazonaws.com
+          port: 587
+          user: SES-USER
+
+xpack.security.authc:
+  realms:
+    native:
+      native1:
+        order: 0
+    file:
+      file1:
+        order: 2
